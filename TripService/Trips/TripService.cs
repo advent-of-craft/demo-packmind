@@ -1,18 +1,18 @@
 ﻿using TripService.Exception;
-using TripService.User;
+using TripService.Users;
 
-namespace TripService.Trip
+namespace TripService.Trips
 {
     public class TripService
     {
-        public List<Trip> GetTripsByUser(User.User user)
+        public List<Trip> GetTripsByUser(User user)
         {
             List<Trip> tripList = new List<Trip>();
-            User.User loggedUser = UserSession.GetInstance().GetLoggedUser();
+            User? loggedUser = GetLoggedUser();
             bool isFriend = false;
             if (loggedUser != null)
             {
-                foreach (User.User friend in user.GetFriends())
+                foreach (User friend in user.GetFriends())
                 {
                     if (friend.Equals(loggedUser))
                     {
@@ -23,7 +23,7 @@ namespace TripService.Trip
 
                 if (isFriend)
                 {
-                    tripList = TripDAO.FindTripsByUser(user);
+                    tripList = FindTripsByUser(user);
                 }
 
                 return tripList;
@@ -33,5 +33,8 @@ namespace TripService.Trip
                 throw new UserNotLoggedInException();
             }
         }
+
+        protected virtual User? GetLoggedUser() => UserSession.GetInstance().GetLoggedUser();
+        protected virtual List<Trip> FindTripsByUser(User user) => TripDAO.FindTripsByUser(user);
     }
 }

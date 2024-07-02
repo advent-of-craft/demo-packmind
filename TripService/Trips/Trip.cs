@@ -1,4 +1,4 @@
-﻿namespace TripService.Trip
+﻿namespace TripService.Trips
 {
     public class Trip
     {

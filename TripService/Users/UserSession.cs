@@ -1,6 +1,6 @@
 ﻿using TripService.Exception;
 
-namespace TripService.User
+namespace TripService.Users
 {
     public class UserSession
     {
@@ -12,7 +12,7 @@ namespace TripService.User
             throw new CollaboratorCallException(
                 "UserSession.IsUserLoggedIn() should not be called in an unit test");
 
-        public User GetLoggedUser() =>
+        public User? GetLoggedUser() =>
             throw new CollaboratorCallException("UserSession.GetLoggedUser() should not be called in an unit test");
     }
 }

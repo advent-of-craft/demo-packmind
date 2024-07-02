@@ -1,10 +1,11 @@
 ﻿using TripService.Exception;
+using TripService.Users;
 
-namespace TripService.Trip
+namespace TripService.Trips
 {
     public class TripDAO
     {
-        public static List<Trip> FindTripsByUser(User.User user)
+        public static List<Trips.Trip> FindTripsByUser(User user)
         {
             throw new CollaboratorCallException("TripDAO should not be invoked on an unit test.");
         }
