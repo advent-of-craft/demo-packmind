@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "packmind": "dotenv -e .env.promyze promyze-cli scan ."
+  }
+}
