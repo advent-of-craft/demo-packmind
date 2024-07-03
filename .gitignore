@@ -28,3 +28,4 @@ BenchmarkDotNet.Artifacts/
 
 ### Exclude Packmind License
 .env.promyze 
+node_modules

@@ -20,25 +20,28 @@ namespace TripService.Tests.Trips
             private static readonly User AnotherUser = AUser().Build();
 
             [Fact]
-            public void No_Trips_When_Logged_User_Is_Not_A_Friend_Of_The_Target_User()
-            {
-                var aUserWithTrips = AUser()
-                    .FriendsWith(AnotherUser)
-                    .TravelledTo(Lisbon)
-                    .Build();
-
-                TripServiceWithLoggedUser(RegisteredUser)
-                    .GetTripsByUser(aUserWithTrips)
+            public void No_Trips_When_Logged_User_Is_Not_A_Friend_Of_The_Target_User() 
+                => TripServiceWithLoggedUser(RegisteredUser)
+                    .GetTripsByUser(AUser()
+                        .FriendsWith(AnotherUser)
+                        .TravelledTo(Lisbon)
+                        .Build())
                     .Should()
                     .BeEmpty();
-            }
 
             [Fact]
-            public void All_The_Target_User_Trips_When_Logged_User_Is_A_Friend_Of_The_Target_User()
+            public void All_The_Target_User_Trips_When_Logged_User_Is_A_Friend_Of_The_Target_User() 
+                => AssertReturnAllTheTargetUserTripsForAUserFriendWith(new[] {RegisteredUser});
+
+            [Fact]
+            public void All_The_Target_User_Trips_When_Logged_User_Is_A_Friend_Of_The_Target_User_And_Has_Multiple_Friends()
+                => AssertReturnAllTheTargetUserTripsForAUserFriendWith(AnotherUser, RegisteredUser);
+            
+            private static void AssertReturnAllTheTargetUserTripsForAUserFriendWith(params User[] friends) 
                 => AUser()
-                    .FriendsWith(AnotherUser, RegisteredUser)
+                    .FriendsWith(friends)
                     .TravelledTo(Lisbon, Springfield).Build()
-                    .Let(aUserWithTrips =>
+                    .Do(aUserWithTrips =>
                     {
                         TripServiceWithLoggedUser(RegisteredUser)
                             .SimulateDaoWith(aUserWithTrips.Trips())
