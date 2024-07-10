@@ -1,4 +1,9 @@
 # Summer of Craft: Apprendre et s'améliorer ensemble
+
+Ce repository a été utilisé lors du webinar [Packmind](https://www.packmind.com/) du 9 juillet 2024.
+
+[![Webinar](img/webinar.webp)](https://youtu.be/k_uLw26oVpo?si=uj123FnriSKk01ui)
+
 Un **cahier de vacances** pour améliorer vos bonnes pratiques de développement, ça vous dit?
 
 Retour sur un voyage phénoménal avec **[Yoan Thirion](https://github.com/ythirion)** et **[Yann Courtel](https://github.com/yanncourtel)**, qui a débuté en Novembre 2023. En seulement 10 jours, ils ont transformé une idée en une aventure pour les développeurs et développeuses avec l'[Advent Of Craft 2023](https://github.com/advent-of-craft/2023) (un calendrier de l'avent pour devs!)
@@ -19,10 +24,11 @@ Rejoignez le mouvement et redéfinissons la façon dont nous apprenons et grandi
 ## Packmind CLI
 On peut utiliser [Packmind CLI](https://docs.packmind.com/detect-practices-in-your-code/packmind-cli/run-with-npm) pour scanner notre projet.
 
-// TODO ajouter image ici 
+![Packmind CLI](img/packmind-cli.webp)
 
-## Replay
-Le replay de la session du 9 juillet 2024 sera disponible ici.
+## Summer Craft Book 2024
+Notre cahier de vacances est disponible ici:
+[![Summer of Craft Book 2024](img/cover.webp)](https://github.com/advent-of-craft/2024-summer-craft-book)
 
 ## Advent Of Craft 2023
 Notre calendrier de l'Avent Craft 2023 est disponible ici:
